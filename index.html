@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opilor App - MVP Landing Page</title>
     
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE6WBX1HT7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WE6WBX1HT7');
+  </script>
+
     <!-- Favicon Links Start -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
@@ -118,7 +128,7 @@
             <i id="mobile-theme-toggle-icon-light" class="fas fa-moon text-xl"></i>
             <i id="mobile-theme-toggle-icon-dark" class="fas fa-sun text-xl hidden"></i>
           </button>
-          <a href="https://t.me/+DjWPEqlOAzxmM2Vk" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-opilor-green text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-smooth shadow-sm">
+          <a href="https://t.me/+DjWPEqlOAzxmM2Vk" target="_blank" rel="noopener noreferrer" class="join-beta-btn block w-full text-center bg-opilor-green text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-smooth shadow-sm">
             Join the Beta
           </a>
         </div>
@@ -135,7 +145,7 @@
           <a href="#helper" class="text-[#333333] dark:text-slate-300 hover:text-opilor-green dark:hover:text-opilor-green font-medium transition-smooth">Become a Helper</a>
           <a href="#join" class="text-[#333333] dark:text-slate-300 hover:text-opilor-green dark:hover:text-opilor-green font-medium transition-smooth">Pilot reward</a>
           <a href="#services" class="text-[#333333] dark:text-slate-300 hover:text-opilor-green dark:hover:text-opilor-green font-medium transition-smooth">Services</a>
-          <a href="https://t.me/+DjWPEqlOAzxmM2Vk" target="_blank" rel="noopener noreferrer" class="bg-opilor-green text-white font-semibold py-2 px-6 rounded-lg hover:opacity-90 transition-smooth shadow-sm">
+          <a href="https://t.me/+DjWPEqlOAzxmM2Vk" target="_blank" rel="noopener noreferrer" class="join-beta-btn bg-opilor-green text-white font-semibold py-2 px-6 rounded-lg hover:opacity-90 transition-smooth shadow-sm">
             Join the Beta
           </a>
           <button id="theme-toggle" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5">
@@ -160,7 +170,7 @@
           <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8">
             Opilor MVP is in exclusive private beta, recruiting early users for a limited time.
           </p>
-          <a href="./assets/Post.png" target="_blank" rel="noopener noreferrer" class="bg-opilor-green text-white font-bold py-4 px-10 rounded-lg text-lg hover:opacity-90 transition-smooth shadow-md">
+          <a id="how-to-start-btn" href="./assets/Post.png" target="_blank" rel="noopener noreferrer" class="bg-opilor-green text-white font-bold py-4 px-10 rounded-lg text-lg hover:opacity-90 transition-smooth shadow-md">
             How to start
           </a>
           <div class="mt-12 md:mt-16 w-full">
@@ -619,6 +629,29 @@
                     localStorage.setItem('color-theme', 'dark');
                 }
             }
+        });
+      });
+
+      // GA4 Event Tracking
+      // Track 'How to start' button click
+      const howToStartBtn = document.getElementById('how-to-start-btn');
+      if (howToStartBtn) {
+        howToStartBtn.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'engagement',
+            'event_label': 'how_to_start_button'
+          });
+        });
+      }
+
+      // Track 'Join the Beta' button clicks
+      const joinBetaBtns = document.querySelectorAll('.join-beta-btn');
+      joinBetaBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'engagement',
+            'event_label': 'join_beta_button'
+          });
         });
       });
     </script>
