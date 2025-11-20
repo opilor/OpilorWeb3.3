@@ -6,14 +6,14 @@
     <title>Opilor App - MVP Landing Page</title>
     
     <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE6WBX1HT7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWY91L1P9N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-WE6WBX1HT7');
-  </script>
+      gtag('config', 'G-KWY91L1P9N');
+    </script>
 
     <!-- Favicon Links Start -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
@@ -632,14 +632,13 @@
         });
       });
 
-      // GA4 Event Tracking
+      // GA4 Event Tracking (Recommended Method)
       // Track 'How to start' button click
       const howToStartBtn = document.getElementById('how-to-start-btn');
       if (howToStartBtn) {
         howToStartBtn.addEventListener('click', function() {
-          gtag('event', 'click', {
-            'event_category': 'engagement',
-            'event_label': 'how_to_start_button'
+          gtag('event', 'how_to_start_click', {
+            'event_category': 'engagement'
           });
         });
       }
@@ -648,9 +647,8 @@
       const joinBetaBtns = document.querySelectorAll('.join-beta-btn');
       joinBetaBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          gtag('event', 'click', {
-            'event_category': 'engagement',
-            'event_label': 'join_beta_button'
+          gtag('event', 'join_beta_click', {
+            'event_category': 'engagement'
           });
         });
       });
